@@ -16,6 +16,13 @@ pipeline {
         stage('build') {
             steps {
                 echo "Hello World!"
+                sh """
+                      #!/bin/bash
+                      
+                      aws s3 ls;
+                      echo "TF Version checking...."
+                      terraform -v
+                   """
             }
         }
     }
